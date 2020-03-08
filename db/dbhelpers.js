@@ -2,7 +2,7 @@ var Product = require('./');
 // complete the dbhelpers
 var helpers = {
   getProductsHelper: () => Product.find(),
-  postProductsHelper: () => {},
+  postProductsHelper: (data) => Product.create(data),
   updateProductHelper: () => {},
   deleteProductHelper: () => {}
 };

@@ -9,8 +9,15 @@ const controller = {
       .then((data) => {res.status(200).json(data), console.log('RETTRIEVED DATA')})
       .catch((err) => {res.status(400).send(err), console.log('ERROR RETRIEVING DATA')})
   },
-  post: (req, res) => {},
+
+  post: (req, res) => {
+    helpers.postProductsHelper(req.body)
+      .then(() => {res.status(200).send(), console.log('POSTED DATA')})
+      .catch((err) => {res.status(400).send(err), console.log('ERROR POSTING DATA')})
+  },
+
   put: (req, res) => {},
+
   delete: (req, res) => {}
 }
 
