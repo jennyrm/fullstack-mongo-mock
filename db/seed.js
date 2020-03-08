@@ -31,7 +31,7 @@ const createProducts = () => {
 }
 
 const insertMockData = function() {
-  Product.insertMany()
+  Product.insertMany(createProducts())
     .then(() => {console.log('INSERTED PRODUCT INTO DB')})
     .catch((err) => {console.log('FAILED TO INSERT PRODUCT INTO DB')})
 };
