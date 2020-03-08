@@ -4,7 +4,7 @@
   "description": "a repo to practice working with a full stack application using a nosql database",
   "main": "./server/index.js",
   "scripts": {
-    "build": "webpack -w",
+    "build": "webpack -d -w",
     "start": "nodemon server/index.js"
   },
   "repository": "https://github.com/atk1213/fullstack-mongo-mock",

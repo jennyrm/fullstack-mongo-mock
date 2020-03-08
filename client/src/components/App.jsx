@@ -2,24 +2,38 @@ import React from 'react';
 import ProductList from './ProductList';
 import ProductViewer from './ProductViewer';
 import Search from './Search';
-
 import axios from 'axios';
 
 export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-
+      items: []
     }
 
   }
 
-  render(){
-  
+  getAll() {
+    axios.get('/name/products')
+      .then((response) => {
+        this.setState({
+          items: response.data
+        })
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+
+  componentDidMount() {
+    this.getAll();
+  }
+
+  render() {
     return(
       <div>
         <div>
-          <h1>EBID</h1>
+          <h1>E-BID</h1>
           <h3>The jankiest ebay rip-off you'll ever see (probably)</h3>
         </div>
         <nav className="navbar">
@@ -32,7 +46,7 @@ export default class App extends React.Component {
             <ProductViewer />
           </div>
           <div className="col-md-5 product-list-container">
-            <ProductList  />
+            <ProductList items={this.state.items}/>
           </div>
         </div>
       </div>

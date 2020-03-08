@@ -6,7 +6,7 @@ var helpers = require('../db/dbhelpers.js');
 const controller = {
   get: (req, res) => {
     helpers.getProductsHelper()
-      .then((data) => {res.status(200).json(data), console.log('RETTRIEVED DATA')})
+      .then((data) => {res.status(200).json(data), console.log('RETRIEVED DATA')})
       .catch((err) => {res.status(400).send(err), console.log('ERROR RETRIEVING DATA')})
   },
 
