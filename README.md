@@ -54,8 +54,8 @@ Being the amazing engineer you are, you break down the provided specs into the f
   (Do not worry if your classnames do not necessary match the stylesheet's. As previously stated, make the app functional. Only make it look better if you finish everything before your own set time-limit)
 
     - Ensure the following functionalities:
-      - [ ] on page load - make sure that 10 products render on the side, and one product renders in the product view.
-      - [ ] view product - implement a click function that allows the client to click and view the details for each product
+      - [x] on page load - make sure that 10 products render on the side, and one product renders in the product view.
+      - [x] view product - implement a click function that allows the client to click and view the details for each product
       - [ ] bidding - make sure a user can bid on a product so that their current bid updates it
   
   6. Let's go a few steps further. Refactor your code to implement the following

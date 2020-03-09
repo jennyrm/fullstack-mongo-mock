@@ -3,9 +3,9 @@ import Products from './Products';
   
 const ProductList = (props) => (
   <div>
-   {props.items.map((item) => {
-     <Products product={item}/>
-   })}
+   {props.items.map((item, i) => (
+     <Products product={item} changeIndexFxn={props.changeIndexFxn} index={i} key={i}/> 
+   ))}
   </div>
 )
 

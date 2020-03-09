@@ -2,11 +2,11 @@ import React from 'react';
   
 const Products = (props) => (
   <div>
-    {props.product.item}
-    {props.product.min_cost}
-    {props.product.curr_bid}
-    {props.product.ends_in}
-    {props.product.image}
+    <img src={props.product.image}></img>
+    <div onClick={() => props.changeIndexFxn(props.index)}>{props.product.item}</div><br></br>
+    <div>Current Bid: ${props.product.curr_bid}</div>
+    <div>Original Posting Price: ${props.product.min_cost}</div>
+    <div>Bidding Ends in: {props.product.ends_in} day(s)</div>
   </div>
 )
 

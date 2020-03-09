@@ -8,14 +8,21 @@ export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      items: []
+      items: [{
+        item: 'PARTS ONLY Azeus Gaming System',
+        min_cost: 3,
+        curr_bid: 7829,
+        ends_in: 1,
+        image: 'http://lorempixel.com/400/400/technics/1'
+      }],
+      index: 0
     }
-
+    this.changeIndex = this.changeIndex.bind(this);
   }
 
   getAll() {
     axios.get('/name/products')
-      .then((response) => {
+    .then((response) => {
         this.setState({
           items: response.data
         })
@@ -23,6 +30,16 @@ export default class App extends React.Component {
       .catch((err) => {
         console.error(err)
       })
+  }
+
+  updateItem() {
+    
+  }
+
+  changeIndex(i) {
+    this.setState({
+      index: i
+    })
   }
 
   componentDidMount() {
@@ -43,10 +60,10 @@ export default class App extends React.Component {
         </nav>
         <div className="row main-container">
           <div className="col-md-7 product-viewer-container">
-            <ProductViewer />
+            <ProductViewer items={this.state.items} index={this.state.index}/>
           </div>
-          <div className="col-md-5 product-list-container">
-            <ProductList items={this.state.items}/>
+          <div style={{float:'right'}} className="col-md-5 product-list-container">
+            <ProductList items={this.state.items} changeIndexFxn={this.changeIndex}/>
           </div>
         </div>
       </div>
