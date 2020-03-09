@@ -9,6 +9,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       items: [{
+        _id: '',
         item: 'PARTS ONLY Azeus Gaming System',
         min_cost: 3,
         curr_bid: 7829,
@@ -18,6 +19,7 @@ export default class App extends React.Component {
       index: 0
     }
     this.changeIndex = this.changeIndex.bind(this);
+    this.updateItem = this.updateItem.bind(this);
   }
 
   getAll() {
@@ -32,8 +34,12 @@ export default class App extends React.Component {
       })
   }
 
-  updateItem() {
-    
+  updateItem(id, bid) {
+    axios.put(`/name/products/${id}`, {curr_bid: bid})
+      .then(() => {this.getAll()}, alert('successfully updated bid'))
+      .catch((err) => {
+        console.error(err)
+      })
   }
 
   changeIndex(i) {
@@ -60,7 +66,7 @@ export default class App extends React.Component {
         </nav>
         <div className="row main-container">
           <div className="col-md-7 product-viewer-container">
-            <ProductViewer items={this.state.items} index={this.state.index}/>
+            <ProductViewer items={this.state.items} index={this.state.index} updateItemFxn={this.updateItem}/>
           </div>
           <div style={{float:'right'}} className="col-md-5 product-list-container">
             <ProductList items={this.state.items} changeIndexFxn={this.changeIndex}/>

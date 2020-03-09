@@ -56,7 +56,7 @@ Being the amazing engineer you are, you break down the provided specs into the f
     - Ensure the following functionalities:
       - [x] on page load - make sure that 10 products render on the side, and one product renders in the product view.
       - [x] view product - implement a click function that allows the client to click and view the details for each product
-      - [ ] bidding - make sure a user can bid on a product so that their current bid updates it
+      - [x] bidding - make sure a user can bid on a product so that their current bid updates it
   
   6. Let's go a few steps further. Refactor your code to implement the following
   

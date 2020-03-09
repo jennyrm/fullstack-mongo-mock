@@ -4,7 +4,8 @@ export default class ProductViewer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      bid: ''
+      _id: '',
+      curr_bid: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.handlecClick = this.handlecClick.bind(this);
@@ -12,13 +13,14 @@ export default class ProductViewer extends React.Component {
 
   handleChange(e) {
     this.setState({
+      _id: this.props.items[this.props.index]._id,
       [e.target.name]: e.target.value
     })
-    console.log(this.state.bid)
+    console.log(this.state)
   }
 
   handlecClick() {
-
+    this.props.updateItemFxn(this.state._id, this.state.curr_bid);
   }
 
   render(){
@@ -29,7 +31,7 @@ export default class ProductViewer extends React.Component {
         <div>Current Bid: ${this.props.items[this.props.index].curr_bid}</div><br></br>
         <div>Original Posting Price: ${this.props.items[this.props.index].min_cost}</div><br></br>
         <div>Bidding Ends in: {this.props.items[this.props.index].ends_in} day(s)</div><br></br>
-        New Bid: <input onChange={this.handleChange} name='bid' value={this.state.bid} ></input>
+        New Bid: <input onChange={this.handleChange} name='curr_bid' value={this.state.curr_bid} ></input>
         <button onClick={this.handlecClick}>Submit</button>
       </div>
     )

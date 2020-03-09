@@ -11,12 +11,15 @@ const controller = {
   },
 
   post: (req, res) => {
-    helpers.postProductsHelper(req.body)
-      .then(() => {res.status(200).send(), console.log('POSTED DATA')})
-      .catch((err) => {res.status(400).send(err), console.log('ERROR POSTING DATA')})
   },
 
-  put: (req, res) => {},
+  put: (req, res) => {
+    console.log(req.params);
+    console.log(req.body);
+    helpers.updateProductHelper(req.params, req.body)
+      .then(() => {res.status(200).send(), console.log('UPDATED DATA')})
+      .catch((err) => {res.status(400).send(err), console.log('ERROR UPDATING DATA')})
+  },
 
   delete: (req, res) => {}
 }

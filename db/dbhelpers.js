@@ -3,7 +3,7 @@ var Product = require('./');
 var helpers = {
   getProductsHelper: () => Product.find(),
   postProductsHelper: (data) => Product.create(data),
-  updateProductHelper: () => {},
+  updateProductHelper: (id, new_bid) => Product.findOneAndUpdate(id, new_bid),
   deleteProductHelper: () => {}
 };
 
